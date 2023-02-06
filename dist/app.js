@@ -1,0 +1,25 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const bodyParser = require("body-parser");
+const app = (0, express_1.default)();
+const country = require("./src/routes/country");
+const state = require("./src/routes/state");
+const partners = require("./src/routes/partners");
+const search = require("./src/routes/search_partners");
+const searchBy = require("./src/routes/search_partners_by");
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/api/loc_country", country);
+app.use("/api/loc_state", state);
+app.use("/api/partner_locator", partners);
+app.use("/api/partner_locator/search", search);
+app.use("/api/partner_locator/search/by", searchBy);
+exports.default = app;

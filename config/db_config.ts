@@ -8,6 +8,8 @@ const db_config: dbConfig = {
   database: process.env.DB_DATABASE,
 };
 
+console.log(process.env.DB_HOST);
+
 const pool = mysql2.createPool(db_config);
 
 export default pool;

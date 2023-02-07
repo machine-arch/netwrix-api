@@ -76,8 +76,6 @@ router.post("/", (req: any, res: any) => {
       res.status(200).json(result[0]);
     });
   }
-
-  pool.end();
 });
 
 module.exports = router;

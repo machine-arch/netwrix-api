@@ -6,8 +6,6 @@ router.get("/", (req, res) => {
   pool.query("SELECT * FROM loc_state").then((result) => {
     res.status(200).json(result[0]);
   });
-
-  pool.end();
 });
 
 module.exports = router;
